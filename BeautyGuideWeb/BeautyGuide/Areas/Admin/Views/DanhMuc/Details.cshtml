@@ -1,0 +1,55 @@
+@model BeautyGuide.Models.DanhMuc
+
+@{
+    ViewData["Title"] = "Chi tiết danh mục";
+}
+
+<div class="container-fluid mt-4">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">@ViewData["Title"]</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-2">ID</dt>
+                <dd class="col-sm-10">@Model.Id</dd>
+                
+                <dt class="col-sm-2">Tên danh mục</dt>
+                <dd class="col-sm-10">@Model.TenDanhMuc</dd>
+                
+                <dt class="col-sm-2">Mô tả</dt>
+                <dd class="col-sm-10">
+                    @if (string.IsNullOrEmpty(Model.MoTa))
+                    {
+                        <span class="text-muted">Không có mô tả</span>
+                    }
+                    else
+                    {
+                        @Model.MoTa
+                    }
+                </dd>
+                
+                <dt class="col-sm-2">Trạng thái</dt>
+                <dd class="col-sm-10">
+                    @if (Model.TrangThai)
+                    {
+                        <span class="badge bg-success">Hoạt động</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Không hoạt động</span>
+                    }
+                </dd>
+            </dl>
+            
+            <div class="mt-3">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+                    <i class="bi bi-pencil"></i> Sửa
+                </a>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Quay lại danh sách
+                </a>
+            </div>
+        </div>
+    </div>
+</div> 

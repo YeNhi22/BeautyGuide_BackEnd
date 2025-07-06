@@ -1,0 +1,239 @@
+@model BeautyGuide.ViewModels.BaiVietCreateViewModel
+
+@{
+    ViewData["Title"] = "Tạo bài viết mới";
+    var danhMucs = ViewData["DanhMucs"] as List<BeautyGuide.Models.DanhMuc>;
+    var tags = ViewData["Tags"] as List<BeautyGuide.Models.Tag>;
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">@ViewData["Title"]</h1>
+    <a asp-area="Admin" asp-controller="BaiViet" asp-action="Index" class="btn btn-outline-primary">
+        <i class="fas fa-arrow-left me-1"></i> Quay lại danh sách
+    </a>
+</div>
+
+<form asp-area="Admin" asp-controller="BaiViet" asp-action="Create" method="post" enctype="multipart/form-data" id="createForm">
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-4"></div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Nội dung chính -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-edit me-1"></i> Nội dung bài viết
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-4">
+                        <label asp-for="TieuDe" class="form-label fw-bold">Tiêu đề</label>
+                        <input asp-for="TieuDe" class="form-control form-control-lg" placeholder="Nhập tiêu đề bài viết" />
+                        <span asp-validation-for="TieuDe" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="MoTaNgan" class="form-label fw-bold">Mô tả ngắn</label>
+                        <textarea asp-for="MoTaNgan" class="form-control" rows="3" placeholder="Nhập mô tả ngắn về bài viết"></textarea>
+                        <span asp-validation-for="MoTaNgan" class="text-danger"></span>
+                        <small class="text-muted">Mô tả ngắn sẽ được hiển thị ở trang danh sách bài viết và kết quả tìm kiếm.</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="NoiDung" class="form-label fw-bold">Nội dung</label>
+                        <textarea asp-for="NoiDung" id="editor" class="form-control" rows="10"></textarea>
+                        <span asp-validation-for="NoiDung" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEO Settings -->
+            <div class="card shadow mb-4">
+                <a href="#collapseSEO" class="card-header py-3 d-flex align-items-center justify-content-between text-decoration-none" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseSEO">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-search me-1"></i> Cài đặt SEO
+                    </h6>
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="collapse" id="collapseSEO">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Meta Title</label>
+                            <input type="text" name="MetaTitle" class="form-control" placeholder="Tiêu đề SEO (mặc định sẽ sử dụng tiêu đề bài viết)" />
+                            <small class="text-muted">Khuyến nghị: Tối đa 60 ký tự</small>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Meta Description</label>
+                            <textarea name="MetaDescription" class="form-control" rows="2" placeholder="Mô tả SEO (mặc định sẽ sử dụng mô tả ngắn)"></textarea>
+                            <small class="text-muted">Khuyến nghị: Tối đa 160 ký tự</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <!-- Thông tin xuất bản -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-paper-plane me-1"></i> Xuất bản
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-1"></i> Đăng bài viết
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary" id="draftBtn">
+                            <i class="fas fa-save me-1"></i> Lưu nháp
+                        </button>
+                    </div>
+                    <hr />
+                    <div class="mb-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="trangThaiSwitch" name="TrangThai" value="true" checked>
+                            <label class="form-check-label" for="trangThaiSwitch">Hiển thị bài viết</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Danh mục -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-folder me-1"></i> Danh mục
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <select asp-for="DanhMucId" class="form-select">
+                            <option value="">-- Chọn danh mục --</option>
+                            @if (danhMucs != null)
+                            {
+                                foreach (var danhMuc in danhMucs)
+                                {
+                                    <option value="@danhMuc.Id">@danhMuc.TenDanhMuc</option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="DanhMucId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ảnh bìa -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-image me-1"></i> Ảnh bìa
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <div class="text-center mb-3">
+                            <div class="image-preview bg-light p-2 rounded" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
+                                <img id="imagePreview" src="#" alt="Xem trước" style="max-width: 100%; max-height: 200px; display: none;" />
+                                <div id="placeholderText" class="text-muted">
+                                    <i class="fas fa-image fa-3x mb-2"></i>
+                                    <p>Chưa có ảnh</p>
+                                </div>
+                            </div>
+                        </div>
+                        <input asp-for="AnhBiaFile" type="file" class="form-control" accept="image/*" onchange="previewImage(this)" />
+                        <span asp-validation-for="AnhBiaFile" class="text-danger"></span>
+                        <small class="text-muted d-block mt-2">Kích thước khuyến nghị: 1200 x 630 pixels</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-tags me-1"></i> Tags
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        @if (tags != null && tags.Any())
+                        {
+                            <div class="tag-list">
+                                @foreach (var tag in tags)
+                                {
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" name="TagIds" value="@tag.Id" id="tag_@tag.Id" class="form-check-input" />
+                                        <label for="tag_@tag.Id" class="form-check-label">@tag.TenTag</label>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="text-muted">Chưa có tag nào.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdn.tiny.cloud/1/o0ovvt82vhyxtg6dhcbgy4ejxr5vp68gp6ekfaczvo6adqbw/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        // TinyMCE Editor
+        tinymce.init({
+            selector: '#editor',
+            height: 500,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar: 'undo redo | formatselect | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help',
+            content_style: 'body { font-family:Nunito,Helvetica,Arial,sans-serif; font-size:14px }',
+            branding: false,
+            promotion: false
+        });
+
+        // Image Preview
+        function previewImage(input) {
+            var preview = document.getElementById('imagePreview');
+            var placeholder = document.getElementById('placeholderText');
+            
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    placeholder.style.display = 'none';
+                }
+                
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.style.display = 'none';
+                placeholder.style.display = 'block';
+            }
+        }
+
+        // Draft functionality
+        document.getElementById('draftBtn').addEventListener('click', function() {
+            // Add draft field to form
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'IsDraft';
+            input.value = 'true';
+            document.getElementById('createForm').appendChild(input);
+            
+            // Submit form
+            document.getElementById('createForm').submit();
+        });
+    </script>
+} 

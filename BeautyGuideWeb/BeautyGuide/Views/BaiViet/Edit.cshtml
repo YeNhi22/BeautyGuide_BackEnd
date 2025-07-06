@@ -1,0 +1,125 @@
+@model BeautyGuide.ViewModels.BaiVietEditViewModel
+
+@{
+    ViewData["Title"] = "Chỉnh sửa bài viết";
+    var danhMucs = ViewData["DanhMucs"] as List<BeautyGuide.Models.DanhMuc>;
+    var tags = ViewData["Tags"] as List<BeautyGuide.Models.Tag>;
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">@ViewData["Title"]</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="mb-3">
+                            <label asp-for="TieuDe" class="form-label"></label>
+                            <input asp-for="TieuDe" class="form-control" />
+                            <span asp-validation-for="TieuDe" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="MoTaNgan" class="form-label"></label>
+                            <textarea asp-for="MoTaNgan" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="MoTaNgan" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="NoiDung" class="form-label"></label>
+                            <textarea asp-for="NoiDung" id="editor" class="form-control" rows="10"></textarea>
+                            <span asp-validation-for="NoiDung" class="text-danger"></span>
+                            <small class="text-muted">Bạn có thể sử dụng HTML để định dạng nội dung.</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="DanhMucId" class="form-label"></label>
+                            <select asp-for="DanhMucId" class="form-select">
+                                <option value="">-- Chọn danh mục --</option>
+                                @if (danhMucs != null)
+                                {
+                                    foreach (var danhMuc in danhMucs)
+                                    {
+                                        <option value="@danhMuc.Id">@danhMuc.TenDanhMuc</option>
+                                    }
+                                }
+                            </select>
+                            <span asp-validation-for="DanhMucId" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="TagIds" class="form-label"></label>
+                            <div class="row">
+                                @if (tags != null)
+                                {
+                                    foreach (var tag in tags)
+                                    {
+                                        <div class="col-md-3 mb-2">
+                                            <div class="form-check">
+                                                <input type="checkbox" name="TagIds" value="@tag.Id" id="tag_@tag.Id" 
+                                                       class="form-check-input" 
+                                                       @(Model.TagIds != null && Model.TagIds.Contains(tag.Id) ? "checked" : "") />
+                                                <label for="tag_@tag.Id" class="form-check-label">@tag.TenTag</label>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            @if (!string.IsNullOrEmpty(Model.AnhBiaHienTai))
+                            {
+                                <div class="mb-2">
+                                    <label class="form-label">Ảnh bìa hiện tại</label>
+                                    <div>
+                                        <img src="@Model.AnhBiaHienTai" alt="Ảnh bìa" class="img-thumbnail" style="max-height: 200px" />
+                                    </div>
+                                </div>
+                            }
+                            <label asp-for="AnhBiaFile" class="form-label"></label>
+                            <input asp-for="AnhBiaFile" type="file" class="form-control" accept="image/*" />
+                            <span asp-validation-for="AnhBiaFile" class="text-danger"></span>
+                            <small class="text-muted">Để trống nếu không muốn thay đổi ảnh bìa.</small>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save"></i> Lưu thay đổi
+                            </button>
+                            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left"></i> Quay lại chi tiết
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdn.tiny.cloud/1/o0ovvt82vhyxtg6dhcbgy4ejxr5vp68gp6ekfaczvo6adqbw/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#editor',
+            height: 500,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar: 'undo redo | formatselect | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+        });
+    </script>
+} 

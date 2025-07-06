@@ -1,0 +1,72 @@
+@model BeautyGuide.ViewModels.ProfileViewModel
+
+@{
+    ViewData["Title"] = "Thông tin cá nhân";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    @if (!string.IsNullOrEmpty(Model.AnhDaiDien))
+                    {
+                        <img src="@Model.AnhDaiDien" alt="Ảnh đại diện" class="rounded-circle img-fluid" style="width: 150px;" />
+                    }
+                    else
+                    {
+                        <img src="/images/avatar-default.png" alt="Ảnh đại diện mặc định" class="rounded-circle img-fluid" style="width: 150px;" />
+                    }
+                    <h5 class="my-3">@Model.HoTen</h5>
+                    <p class="text-muted mb-1">@Model.Email</p>
+                    <p class="text-muted mb-4">@Model.PhoneNumber</p>
+                    <div class="d-flex justify-content-center mb-2">
+                        <a asp-controller="Account" asp-action="ChangePassword" class="btn btn-outline-primary">Đổi mật khẩu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header">Cập nhật thông tin cá nhân</div>
+                <div class="card-body">
+                    <form asp-action="Profile" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group mb-3">
+                            <label asp-for="HoTen" class="control-label"></label>
+                            <input asp-for="HoTen" class="form-control" />
+                            <span asp-validation-for="HoTen" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" readonly />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="PhoneNumber" class="control-label"></label>
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="NgaySinh" class="control-label"></label>
+                            <input asp-for="NgaySinh" class="form-control" type="date" />
+                            <span asp-validation-for="NgaySinh" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="AnhDaiDienFile" class="control-label"></label>
+                            <input asp-for="AnhDaiDienFile" class="form-control" type="file" accept="image/*" />
+                            <span asp-validation-for="AnhDaiDienFile" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Cập nhật" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

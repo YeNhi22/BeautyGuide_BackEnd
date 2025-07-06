@@ -1,0 +1,487 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+    var danhMucs = ViewData["DanhMucs"] as List<BeautyGuide.Models.DanhMuc>;
+    var baiVietMoiNhat = ViewData["BaiVietMoiNhat"] as List<BeautyGuide.Models.BaiViet>;
+    var baiVietNoiBat = ViewData["BaiVietNoiBat"] as List<BeautyGuide.Models.BaiViet>;
+}
+
+<!-- Hero Section -->
+<div class="hero-section position-relative" style="background-image: url('/images/hero.jpg'); background-size: cover; background-position: center;">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative">
+        <div class="row min-vh-75 align-items-center">
+            <div class="col-lg-7 text-center text-lg-start">
+                <h1 class="display-3 fw-bold text-white mb-4 animate__animated animate__fadeInUp">BeautyGuide</h1>
+                <p class="lead text-white mb-4 animate__animated animate__fadeInUp animate__delay-1s">Khám phá bí quyết làm đẹp toàn diện cho phụ nữ hiện đại</p>
+                <div class="animate__animated animate__fadeInUp animate__delay-2s">
+                    <a href="#featured-categories" class="btn btn-primary btn-lg me-3">
+                        <span class="me-2"><i class="fas fa-search"></i></span>Khám phá ngay
+                    </a>
+                    <a href="#latest-posts" class="btn btn-outline-light btn-lg">
+                        <span class="me-2"><i class="fas fa-newspaper"></i></span>Bài viết mới nhất
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-5 d-none d-lg-block">
+                <div class="hero-card animate__animated animate__fadeInRight animate__delay-1s">
+                    <div class="hero-card-content p-4 bg-white rounded-lg shadow">
+                        <div class="text-center mb-4">
+                            <div class="hero-icon-circle mb-3">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h5 class="fw-bold">Xu hướng mới nhất</h5>
+                            <p class="text-muted small">Cập nhật hàng ngày</p>
+                        </div>
+                        <div class="hero-trend-item d-flex align-items-center mb-3 p-2 rounded">
+                            <div class="trend-number me-3">01</div>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Chăm sóc da mặt</h6>
+                                <p class="text-muted small mb-0">Phương pháp mới nhất</p>
+                            </div>
+                        </div>
+                        <div class="hero-trend-item d-flex align-items-center mb-3 p-2 rounded">
+                            <div class="trend-number me-3">02</div>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Trang điểm tự nhiên</h6>
+                                <p class="text-muted small mb-0">Xu hướng 2024</p>
+                            </div>
+                        </div>
+                        <div class="hero-trend-item d-flex align-items-center p-2 rounded">
+                            <div class="trend-number me-3">03</div>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Dưỡng tóc</h6>
+                                <p class="text-muted small mb-0">Bí quyết từ chuyên gia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,133.3C672,139,768,181,864,197.3C960,213,1056,203,1152,176C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
+</div>
+
+<!-- Stats Counter -->
+<section class="py-5 bg-white stats-counter">
+    <div class="container">
+        <div class="row g-4 text-center">
+            <div class="col-6 col-md-3">
+                <div class="counter-item reveal">
+                    <div class="counter-icon mb-3">
+                        <i class="fas fa-users fa-2x"></i>
+                    </div>
+                    <h2 class="counter-number fw-bold">1000+</h2>
+                    <p class="text-muted mb-0">Người dùng</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="counter-item reveal">
+                    <div class="counter-icon mb-3">
+                        <i class="fas fa-file-alt fa-2x"></i>
+                    </div>
+                    <h2 class="counter-number fw-bold">500+</h2>
+                    <p class="text-muted mb-0">Bài viết</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="counter-item reveal">
+                    <div class="counter-icon mb-3">
+                        <i class="fas fa-star fa-2x"></i>
+                    </div>
+                    <h2 class="counter-number fw-bold">4.8</h2>
+                    <p class="text-muted mb-0">Đánh giá</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="counter-item reveal">
+                    <div class="counter-icon mb-3">
+                        <i class="fas fa-award fa-2x"></i>
+                    </div>
+                    <h2 class="counter-number fw-bold">15+</h2>
+                    <p class="text-muted mb-0">Giải thưởng</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Categories -->
+<section id="featured-categories" class="py-5 bg-light position-relative">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-8 mx-auto text-center">
+                <h6 class="text-primary text-uppercase fw-bold mb-2 reveal">Danh mục nổi bật</h6>
+                <h2 class="mb-3 reveal fw-bold">Khám phá các chủ đề làm đẹp</h2>
+                <p class="text-muted reveal">Tìm hiểu các chủ đề làm đẹp phong phú với những bài viết chất lượng từ các chuyên gia</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            @if (danhMucs != null && danhMucs.Any())
+            {
+                foreach (var danhMuc in danhMucs)
+                {
+                    <div class="col-md-4 col-lg-3">
+                        <div class="card category-card border-0 shadow-sm h-100 reveal">
+                            <div class="card-body text-center p-4">
+                                <div class="category-icon mb-3">
+                                    <i class="fas fa-spa fa-2x"></i>
+                                </div>
+                                <h5 class="card-title fw-bold">@danhMuc.TenDanhMuc</h5>
+                                <p class="card-text text-muted small">@danhMuc.MoTa</p>
+                                <a asp-controller="BaiViet" asp-action="Index" asp-route-danhMucId="@danhMuc.Id" class="btn btn-sm btn-outline-primary mt-3">
+                                    <span class="me-1"><i class="fas fa-arrow-right"></i></span>Xem bài viết
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-12 text-center">
+                    <p class="text-muted">Chưa có danh mục nào.</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Beauty Tips Banner -->
+<section class="py-5 beauty-tips-banner position-relative">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="card border-0 shadow-lg rounded-lg overflow-hidden">
+                    <div class="row g-0">
+                        <div class="col-md-6 d-flex align-items-center">
+                            <div class="p-4 p-md-5">
+                                <h6 class="text-primary text-uppercase fw-bold mb-2 reveal">Mẹo làm đẹp</h6>
+                                <h3 class="mb-3 reveal fw-bold">Bí quyết làm đẹp từ chuyên gia</h3>
+                                <p class="text-muted mb-4 reveal">Khám phá những bí quyết làm đẹp độc đáo từ các chuyên gia hàng đầu trong ngành.</p>
+                                <a href="#" class="btn btn-primary reveal">
+                                    <span class="me-2"><i class="fas fa-lightbulb"></i></span>Xem ngay
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="banner-image h-100 img-hover-zoom" style="background: url('/images/8976.jpg_wh860.jpg') no-repeat center center; background-size: cover;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Posts -->
+<section id="latest-posts" class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-8 mx-auto text-center">
+                <h6 class="text-primary text-uppercase fw-bold mb-2 reveal">Mới cập nhật</h6>
+                <h2 class="mb-3 reveal fw-bold">Bài viết mới nhất</h2>
+                <p class="text-muted reveal">Cập nhật những xu hướng làm đẹp mới nhất và các bài viết chất lượng</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            @if (baiVietMoiNhat != null && baiVietMoiNhat.Any())
+            {
+                foreach (var baiViet in baiVietMoiNhat)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card blog-card h-100 border-0 shadow-sm reveal">
+                            <div class="position-relative overflow-hidden">
+                                @if (!string.IsNullOrEmpty(baiViet.AnhBia))
+                                {
+                                    <img src="@baiViet.AnhBia" class="card-img-top" alt="@baiViet.TieuDe">
+                                }
+                                else
+                                {
+                                    <img src="/images/default-post.jpg" class="card-img-top" alt="@baiViet.TieuDe">
+                                }
+                                <div class="post-date position-absolute top-0 end-0 bg-primary text-white p-2 m-2 rounded">
+                                    @baiViet.NgayDang.ToString("dd/MM/yyyy")
+                                </div>
+                                <div class="post-overlay">
+                                    <a asp-controller="BaiViet" asp-action="Details" asp-route-id="@baiViet.Id" class="btn btn-sm btn-light">
+                                        <span class="me-1"><i class="fas fa-eye"></i></span>Xem chi tiết
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="post-category mb-2">
+                                    <span class="badge bg-light text-primary">@(baiViet.DanhMuc?.TenDanhMuc ?? "Chung")</span>
+                                </div>
+                                <h5 class="card-title fw-bold">@baiViet.TieuDe</h5>
+                                <p class="card-text text-muted">@baiViet.MoTaNgan</p>
+                            </div>
+                            <div class="card-footer bg-white border-0 p-4 pt-0">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="post-meta small text-muted">
+                                        <i class="fas fa-eye me-1"></i> @baiViet.LuotXem lượt xem
+                                    </div>
+                                    <a asp-controller="BaiViet" asp-action="Details" asp-route-id="@baiViet.Id" class="btn btn-sm btn-primary">
+                                        <span class="me-1"><i class="fas fa-arrow-right"></i></span>Chi tiết
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-12 text-center">
+                    <p class="text-muted">Chưa có bài viết nào.</p>
+                </div>
+            }
+        </div>
+        
+        <div class="text-center mt-5">
+            <a asp-controller="BaiViet" asp-action="Index" class="btn btn-primary btn-lg reveal">
+                <span class="me-2"><i class="fas fa-th-large"></i></span>Xem tất cả bài viết
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Posts -->
+<section class="py-5 bg-light position-relative">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-8 mx-auto text-center">
+                <h6 class="text-primary text-uppercase fw-bold mb-2 reveal">Đáng chú ý</h6>
+                <h2 class="mb-3 reveal fw-bold">Bài viết nổi bật</h2>
+                <p class="text-muted reveal">Những bài viết được đánh giá cao và được nhiều người đọc nhất</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            @if (baiVietNoiBat != null && baiVietNoiBat.Any())
+            {
+                foreach (var baiViet in baiVietNoiBat)
+                {
+                    <div class="col-lg-6 mb-4">
+                        <div class="card featured-card border-0 shadow-sm h-100 reveal">
+                            <div class="row g-0">
+                                <div class="col-md-5 position-relative overflow-hidden">
+                                    @if (!string.IsNullOrEmpty(baiViet.AnhBia))
+                                    {
+                                        <img src="@baiViet.AnhBia" class="img-fluid h-100 w-100" alt="@baiViet.TieuDe" style="object-fit: cover;">
+                                    }
+                                    else
+                                    {
+                                        <img src="/images/default-post.jpg" class="img-fluid h-100 w-100" alt="@baiViet.TieuDe" style="object-fit: cover;">
+                                    }
+                                    <div class="featured-badge position-absolute top-0 start-0 bg-primary text-white p-2 m-2">
+                                        <i class="fas fa-star me-1"></i> Nổi bật
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="card-body p-4">
+                                        <div class="post-category mb-2">
+                                            <span class="badge bg-light text-primary">@(baiViet.DanhMuc?.TenDanhMuc ?? "Chung")</span>
+                                        </div>
+                                        <h4 class="card-title fw-bold">@baiViet.TieuDe</h4>
+                                        <p class="card-text text-muted">@baiViet.MoTaNgan</p>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <div class="post-meta small text-muted">
+                                                <i class="fas fa-eye me-1"></i> @baiViet.LuotXem lượt xem
+                                            </div>
+                                            <a asp-controller="BaiViet" asp-action="Details" asp-route-id="@baiViet.Id" class="btn btn-sm btn-primary">
+                                                <span class="me-1"><i class="fas fa-arrow-right"></i></span>Chi tiết
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-12 text-center">
+                    <p class="text-muted">Chưa có bài viết nổi bật nào.</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-8 mx-auto text-center">
+                <h6 class="text-primary text-uppercase fw-bold mb-2 reveal">Phản hồi</h6>
+                <h2 class="mb-3 reveal fw-bold">Người dùng nói gì về chúng tôi</h2>
+                <p class="text-muted reveal">Những đánh giá chân thực từ cộng đồng người dùng BeautyGuide</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="testimonial-slider">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card testimonial-card border-0 shadow-sm h-100 reveal">
+                                <div class="card-body p-4">
+                                    <div class="testimonial-rating text-primary mb-3">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text mb-4">"BeautyGuide đã giúp tôi tìm ra phương pháp chăm sóc da phù hợp với làn da nhạy cảm của mình. Cảm ơn vì những bài viết chất lượng!"</p>
+                                    <div class="testimonial-user d-flex align-items-center">
+                                        <div class="testimonial-avatar me-3">
+                                            <img src="/images/1.jpg" alt="User Avatar" class="rounded-circle" width="50" height="50">
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold">Nguyễn Thị Hương</h6>
+                                            <p class="text-muted small mb-0">Người dùng</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card testimonial-card border-0 shadow-sm h-100 reveal">
+                                <div class="card-body p-4">
+                                    <div class="testimonial-rating text-primary mb-3">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text mb-4">"Tôi đã học được rất nhiều mẹo trang điểm hữu ích từ BeautyGuide. Các bài viết rất chi tiết và dễ hiểu, phù hợp với người mới bắt đầu như tôi."</p>
+                                    <div class="testimonial-user d-flex align-items-center">
+                                        <div class="testimonial-avatar me-3">
+                                            <img src="/images/2.jpg" alt="User Avatar" class="rounded-circle" width="50" height="50">
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold">Trần Minh Anh</h6>
+                                            <p class="text-muted small mb-0">Người dùng</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card testimonial-card border-0 shadow-sm h-100 reveal">
+                                <div class="card-body p-4">
+                                    <div class="testimonial-rating text-primary mb-3">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <p class="testimonial-text mb-4">"Website rất dễ sử dụng và có nhiều nội dung hữu ích. Tôi đặc biệt thích các bài viết về chăm sóc tóc và cách phối đồ theo mùa."</p>
+                                    <div class="testimonial-user d-flex align-items-center">
+                                        <div class="testimonial-avatar me-3">
+                                            <img src="/images/3.jpg" alt="User Avatar" class="rounded-circle" width="50" height="50">
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold">Lê Thanh Hà</h6>
+                                            <p class="text-muted small mb-0">Người dùng</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="py-5 bg-primary text-white position-relative newsletter-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="mb-3 reveal fw-bold">Đăng ký nhận tin mới nhất</h2>
+                <p class="lead reveal">Nhận thông báo về các bài viết mới và các mẹo làm đẹp hàng tuần.</p>
+            </div>
+            <div class="col-lg-6">
+                <form class="row g-3 newsletter-form reveal">
+                    <div class="col-md-8">
+                        <div class="form-floating">
+                            <input type="email" class="form-control form-control-lg" id="newsletterEmail" placeholder="Email của bạn">
+                            <label for="newsletterEmail">Email của bạn</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-light btn-lg w-100 h-100">
+                            <span class="me-2"><i class="fas fa-paper-plane"></i></span>Đăng ký
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="newsletter-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#f8f9fa" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,181.3C960,181,1056,203,1152,208C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Back to top button -->
+<button id="backToTop" class="btn btn-primary back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+@section Scripts {
+    <script>
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Reveal animation on scroll
+        window.addEventListener('load', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const revealPoint = 150;
+                
+                reveals.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    
+                    if (elementTop < windowHeight - revealPoint) {
+                        element.classList.add('active');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Initial check
+        });
+    </script>
+}

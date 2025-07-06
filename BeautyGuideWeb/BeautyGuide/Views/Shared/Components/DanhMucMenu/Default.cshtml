@@ -1,0 +1,17 @@
+@model IEnumerable<BeautyGuide.Models.DanhMuc>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var danhMuc in Model)
+    {
+        <li>
+            <a class="dropdown-item" asp-controller="BaiViet" asp-action="Index" asp-route-danhMucId="@danhMuc.Id">
+                @danhMuc.TenDanhMuc
+            </a>
+        </li>
+    }
+}
+else
+{
+    <li><a class="dropdown-item">Không có danh mục nào</a></li>
+} 

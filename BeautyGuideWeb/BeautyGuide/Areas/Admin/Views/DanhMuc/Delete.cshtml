@@ -1,0 +1,64 @@
+@model BeautyGuide.Models.DanhMuc
+
+@{
+    ViewData["Title"] = "Xóa danh mục";
+}
+
+<div class="container-fluid mt-4">
+    <div class="card">
+        <div class="card-header bg-danger text-white">
+            <h4 class="mb-0">@ViewData["Title"]</h4>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <i class="bi bi-exclamation-triangle"></i> Bạn có chắc chắn muốn xóa danh mục này?
+            </div>
+            
+            <div asp-validation-summary="All" class="text-danger"></div>
+            
+            <dl class="row">
+                <dt class="col-sm-2">ID</dt>
+                <dd class="col-sm-10">@Model.Id</dd>
+                
+                <dt class="col-sm-2">Tên danh mục</dt>
+                <dd class="col-sm-10">@Model.TenDanhMuc</dd>
+                
+                <dt class="col-sm-2">Mô tả</dt>
+                <dd class="col-sm-10">
+                    @if (string.IsNullOrEmpty(Model.MoTa))
+                    {
+                        <span class="text-muted">Không có mô tả</span>
+                    }
+                    else
+                    {
+                        @Model.MoTa
+                    }
+                </dd>
+                
+                <dt class="col-sm-2">Trạng thái</dt>
+                <dd class="col-sm-10">
+                    @if (Model.TrangThai)
+                    {
+                        <span class="badge bg-success">Hoạt động</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Không hoạt động</span>
+                    }
+                </dd>
+            </dl>
+            
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex gap-2 mt-3">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash"></i> Xác nhận xóa
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Quay lại danh sách
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 

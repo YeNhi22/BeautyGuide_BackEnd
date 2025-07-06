@@ -1,0 +1,17 @@
+@model IEnumerable<BeautyGuide.Models.DanhMuc>
+
+@foreach (var danhMuc in Model)
+{
+    <li class="mb-2">
+        <a class="text-decoration-none" asp-controller="BaiViet" asp-action="Index" asp-route-danhMucId="@danhMuc.Id">
+            @danhMuc.TenDanhMuc
+        </a>
+    </li>
+}
+
+@if (!Model.Any())
+{
+    <li class="mb-2">
+        <span class="text-muted">Chưa có danh mục nào.</span>
+    </li>
+} 

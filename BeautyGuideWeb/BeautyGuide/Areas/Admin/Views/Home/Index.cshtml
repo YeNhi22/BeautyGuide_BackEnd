@@ -1,0 +1,290 @@
+@model IEnumerable<BeautyGuide.Models.BaiViet>
+@{
+    ViewData["Title"] = "Trang quản trị";
+    Layout = "_AdminLayout";
+}
+
+<h1 class="mt-4 mb-4">Dashboard</h1>
+
+<!-- Dashboard Overview -->
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+        <div class="card stat-card primary mb-4">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h2 class="stat-value text-primary">@ViewBag.TotalBaiViet</h2>
+                        <p class="stat-label">Bài viết</p>
+                    </div>
+                    <div class="col-4 text-end">
+                        <div class="stat-icon text-primary">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-primary text-decoration-none" asp-area="Admin" asp-controller="BaiViet" asp-action="Index">
+                    Xem chi tiết <i class="fas fa-chevron-right ms-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card stat-card warning mb-4">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h2 class="stat-value text-warning">@ViewBag.TotalDanhMuc</h2>
+                        <p class="stat-label">Danh mục</p>
+                    </div>
+                    <div class="col-4 text-end">
+                        <div class="stat-icon text-warning">
+                            <i class="fas fa-list"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-warning text-decoration-none" asp-area="Admin" asp-controller="DanhMuc" asp-action="Index">
+                    Xem chi tiết <i class="fas fa-chevron-right ms-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card stat-card success mb-4">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h2 class="stat-value text-success">@ViewBag.TotalTag</h2>
+                        <p class="stat-label">Tag</p>
+                    </div>
+                    <div class="col-4 text-end">
+                        <div class="stat-icon text-success">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-success text-decoration-none" asp-area="Admin" asp-controller="Tag" asp-action="Index">
+                    Xem chi tiết <i class="fas fa-chevron-right ms-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card stat-card danger mb-4">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h2 class="stat-value text-danger">@ViewBag.TotalUser</h2>
+                        <p class="stat-label">Người dùng</p>
+                    </div>
+                    <div class="col-4 text-end">
+                        <div class="stat-icon text-danger">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-danger text-decoration-none" asp-area="Admin" asp-controller="User" asp-action="Index">
+                    Xem chi tiết <i class="fas fa-chevron-right ms-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Row -->
+<div class="row mb-4">
+    <div class="col-lg-8">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-chart-area me-1"></i>
+                Lượt xem bài viết (30 ngày qua)
+            </div>
+            <div class="card-body">
+                <canvas id="viewsChart" class="chart-area"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-chart-pie me-1"></i>
+                Phân bố bài viết theo danh mục
+            </div>
+            <div class="card-body">
+                <canvas id="categoryChart" class="chart-pie"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Posts Table -->
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Bài viết mới nhất
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tiêu đề</th>
+                        <th>Danh mục</th>
+                        <th>Người đăng</th>
+                        <th>Ngày đăng</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    @if (!string.IsNullOrEmpty(item.AnhBia))
+                                    {
+                                        <img src="@item.AnhBia" class="rounded me-2" width="40" height="40" style="object-fit: cover;" alt="@item.TieuDe">
+                                    }
+                                    else
+                                    {
+                                        <div class="bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                            <i class="fas fa-image text-muted"></i>
+                                        </div>
+                                    }
+                                    <span class="fw-bold">@item.TieuDe</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="badge bg-light text-dark">@item.DanhMuc.TenDanhMuc</span>
+                            </td>
+                            <td>@item.NguoiDang.HoTen</td>
+                            <td>@item.NgayDang.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>
+                                @if (item.TrangThai)
+                                {
+                                    <span class="badge bg-success">Hiển thị</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">Ẩn</span>
+                                }
+                            </td>
+                            <td>
+                                <div class="d-flex">
+                                    <a asp-area="Admin" asp-controller="BaiViet" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary me-1" data-bs-toggle="tooltip" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a asp-area="Admin" asp-controller="BaiViet" asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info me-1" data-bs-toggle="tooltip" title="Chi tiết">
+                                        <i class="fas fa-info-circle"></i>
+                                    </a>
+                                    <a asp-area="Admin" asp-controller="BaiViet" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger" data-bs-toggle="tooltip" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enable tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+            
+            // Views Chart
+            var ctx = document.getElementById('viewsChart').getContext('2d');
+            var viewsChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['01/05', '05/05', '10/05', '15/05', '20/05', '25/05', '30/05'],
+                    datasets: [{
+                        label: 'Lượt xem',
+                        data: [65, 59, 80, 81, 56, 85, 90],
+                        backgroundColor: 'rgba(78, 115, 223, 0.05)',
+                        borderColor: 'rgba(78, 115, 223, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(78, 115, 223, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: 'rgba(78, 115, 223, 1)',
+                        pointHoverBorderColor: '#fff',
+                        pointHitRadius: 10,
+                        pointBorderWidth: 2,
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                maxTicksLimit: 5
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Category Chart
+            var ctxPie = document.getElementById('categoryChart').getContext('2d');
+            var categoryChart = new Chart(ctxPie, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Làm đẹp', 'Chăm sóc da', 'Trang điểm', 'Tóc', 'Khác'],
+                    datasets: [{
+                        data: [35, 25, 20, 15, 5],
+                        backgroundColor: [
+                            'rgba(78, 115, 223, 0.8)',
+                            'rgba(28, 200, 138, 0.8)',
+                            'rgba(246, 194, 62, 0.8)',
+                            'rgba(231, 74, 59, 0.8)',
+                            'rgba(54, 185, 204, 0.8)'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    },
+                    cutout: '70%'
+                }
+            });
+        });
+    </script>
+} 

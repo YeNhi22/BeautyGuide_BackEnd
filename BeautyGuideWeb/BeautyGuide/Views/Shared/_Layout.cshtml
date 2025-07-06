@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Beauty Guide</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="icon" type="image/png" href="~/favicon.ico" />
+    <meta name="description" content="BeautyGuide - Cẩm nang làm đẹp toàn diện dành cho phụ nữ hiện đại" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+            <p>BeautyGuide</p>
+        </div>
+    </div>
+    
+    <!-- Page transition overlay -->
+    <div class="page-transition"></div>
+    
+    <!-- Toast container -->
+    <div class="toast-container"></div>
+    
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <span class="fw-bold">Beauty</span>Guide
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home me-1"></i> Trang chủ
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="BaiViet" asp-action="Index">
+                                <i class="fas fa-newspaper me-1"></i> Bài viết
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-th-list me-1"></i> Danh mục
+                            </a>
+                            <ul class="dropdown-menu shadow-sm border-0" aria-labelledby="navbarDropdown">
+                                @await Component.InvokeAsync("DanhMucMenu")
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <form class="d-flex me-2" asp-area="" asp-controller="BaiViet" asp-action="Index" method="get">
+                            <div class="input-group">
+                                <input class="form-control search-input" type="search" name="searchString" placeholder="Tìm kiếm..." aria-label="Search">
+                                <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </form>
+                        <partial name="_LoginPartial" />
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="main-content">
+        @RenderBody()
+    </div>
+
+    <footer class="footer mt-5">
+        <div class="footer-top py-5">
+            <div class="container">
+                <div class="row py-4">
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <h5 class="text-white mb-3 fw-bold">BeautyGuide</h5>
+                        <p class="text-white-50">Cẩm nang làm đẹp toàn diện dành cho phụ nữ hiện đại</p>
+                        <div class="social-icons mt-3">
+                            <a href="#" class="text-decoration-none me-2"><i class="fab fa-facebook fa-lg"></i></a>
+                            <a href="#" class="text-decoration-none me-2"><i class="fab fa-instagram fa-lg"></i></a>
+                            <a href="#" class="text-decoration-none me-2"><i class="fab fa-youtube fa-lg"></i></a>
+                            <a href="#" class="text-decoration-none me-2"><i class="fab fa-pinterest fa-lg"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-2 mb-4 mb-md-0">
+                        <h5 class="mb-3 fw-bold text-white">Liên kết</h5>
+                        <ul class="list-unstyled footer-links">
+                            <li><a class="text-decoration-none" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                            <li><a class="text-decoration-none" asp-area="" asp-controller="BaiViet" asp-action="Index">Bài viết</a></li>
+                            <li><a class="text-decoration-none" asp-area="" asp-controller="Home" asp-action="Privacy">Chính sách bảo mật</a></li>
+                            <li><a class="text-decoration-none" href="#">Điều khoản sử dụng</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 mb-4 mb-md-0">
+                        <h5 class="mb-3 fw-bold text-white">Danh mục</h5>
+                        <ul class="list-unstyled footer-links">
+                            @await Component.InvokeAsync("DanhMucFooter")
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="mb-3 fw-bold text-white">Liên hệ</h5>
+                        <address class="text-white-50">
+                            <p class="mb-2"><i class="fas fa-envelope me-2"></i> <a class="text-decoration-none text-white-50" href="mailto:info@beautyguide.com">info@beautyguide.com</a></p>
+                            <p class="mb-2"><i class="fas fa-phone me-2"></i> +84 123 456 789</p>
+                            <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Hà Nội, Việt Nam</p>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom py-3 bg-dark border-top border-secondary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="mb-0 text-white-50">&copy; @DateTime.Now.Year - Beauty Guide - Tất cả quyền được bảo lưu.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <a class="text-decoration-none text-white-50 me-3" asp-area="" asp-controller="Home" asp-action="Privacy">Chính sách bảo mật</a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a class="text-decoration-none text-white-50" asp-area="Admin" asp-controller="Home" asp-action="Index">Trang quản trị</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Page transition
+        window.addEventListener('load', function() {
+            const pageTransition = document.querySelector('.page-transition');
+            pageTransition.classList.add('active');
+            
+            setTimeout(function() {
+                pageTransition.classList.remove('active');
+            }, 500);
+            
+            // Hide preloader
+            const preloader = document.querySelector('.preloader');
+            preloader.classList.add('hide');
+        });
+        
+        // Add active class to current nav item
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentPath = window.location.pathname.toLowerCase();
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href').toLowerCase();
+                if (currentPath === href || (href !== '/' && currentPath.startsWith(href))) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

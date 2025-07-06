@@ -1,0 +1,329 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BeautyGuide.bundle.scp.css",
+      "PackagePath": "staticwebassets\\BeautyGuide.7fu1r34pqs.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\css\\admin.css",
+      "PackagePath": "staticwebassets\\css\\admin.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\images\\1.jpg",
+      "PackagePath": "staticwebassets\\images\\1.jpg"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\images\\2.jpg",
+      "PackagePath": "staticwebassets\\images\\2.jpg"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\images\\3.jpg",
+      "PackagePath": "staticwebassets\\images\\3.jpg"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\images\\8976.jpg_wh860.jpg",
+      "PackagePath": "staticwebassets\\images\\8976.jpg_wh860.jpg"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\images\\avatars\\930bc7be-bbc3-4c25-b09d-453a4f5efa29_8.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\930bc7be-bbc3-4c25-b09d-453a4f5efa29_8.jpg"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\images\\avatars\\b6177d03-f000-4ac7-9595-61f91d5a65eb_1.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\b6177d03-f000-4ac7-9595-61f91d5a65eb_1.jpg"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\images\\baiviet\\570dc86b-6532-4603-824f-629c80c85d1f_Co-nang-han-che-nhung-thuc-an-man-va-cay-khong-tot-cho-co-the.webp",
+      "PackagePath": "staticwebassets\\images\\baiviet\\570dc86b-6532-4603-824f-629c80c85d1f_Co-nang-han-che-nhung-thuc-an-man-va-cay-khong-tot-cho-co-the.webp"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\images\\baiviet\\a687c1a3-2b5f-4ed5-93b7-563e4e011043_beautiful-brunette-model-girl-long-600nw-2413031683.webp",
+      "PackagePath": "staticwebassets\\images\\baiviet\\a687c1a3-2b5f-4ed5-93b7-563e4e011043_beautiful-brunette-model-girl-long-600nw-2413031683.webp"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\images\\baiviet\\e088fcfa-68f2-4e88-9b06-af1586f69d04_tải xuống.jpg",
+      "PackagePath": "staticwebassets\\images\\baiviet\\e088fcfa-68f2-4e88-9b06-af1586f69d04_tải xuống.jpg"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\images\\baiviet\\e31da9f4-aec3-4007-a115-b89d41ae03e0_tải xuống (4).jpg",
+      "PackagePath": "staticwebassets\\images\\baiviet\\e31da9f4-aec3-4007-a115-b89d41ae03e0_tải xuống (4).jpg"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\images\\baiviet\\fc3a0b4f-8bb0-41e9-a67e-166376b352c3_mai-han-1_ZOFU.jpg",
+      "PackagePath": "staticwebassets\\images\\baiviet\\fc3a0b4f-8bb0-41e9-a67e-166376b352c3_mai-han-1_ZOFU.jpg"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\images\\default-avatar.jpg",
+      "PackagePath": "staticwebassets\\images\\default-avatar.jpg"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\images\\default-post.jpg",
+      "PackagePath": "staticwebassets\\images\\default-post.jpg"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\images\\hero.jpg",
+      "PackagePath": "staticwebassets\\images\\hero.jpg"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\2024-2025\\BeautyGuideWeb\\BeautyGuide\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BeautyGuide.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BeautyGuide.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BeautyGuide.props",
+      "PackagePath": "build\\BeautyGuide.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BeautyGuide.props",
+      "PackagePath": "buildMultiTargeting\\BeautyGuide.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BeautyGuide.props",
+      "PackagePath": "buildTransitive\\BeautyGuide.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

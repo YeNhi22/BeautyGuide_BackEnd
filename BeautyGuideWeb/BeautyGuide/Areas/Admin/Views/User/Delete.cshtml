@@ -1,0 +1,63 @@
+@model BeautyGuide.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "Xóa người dùng";
+}
+
+<div class="container-fluid mt-4">
+    <div class="card">
+        <div class="card-header bg-danger text-white">
+            <h4 class="mb-0">@ViewData["Title"]</h4>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <i class="bi bi-exclamation-triangle"></i> <strong>Cảnh báo:</strong> Bạn có chắc chắn muốn xóa người dùng này? Hành động này không thể hoàn tác và sẽ xóa tất cả dữ liệu liên quan đến người dùng này.
+            </div>
+            
+            <div asp-validation-summary="All" class="text-danger"></div>
+            
+            <div class="row">
+                <div class="col-md-3 text-center mb-3">
+                    @if (!string.IsNullOrEmpty(Model.AnhDaiDien))
+                    {
+                        <img src="@Model.AnhDaiDien" alt="@Model.HoTen" class="img-thumbnail rounded-circle" style="width: 150px; height: 150px; object-fit: cover;" />
+                    }
+                    else
+                    {
+                        <img src="/images/default-avatar.png" alt="Default Avatar" class="img-thumbnail rounded-circle" style="width: 150px; height: 150px; object-fit: cover;" />
+                    }
+                </div>
+                <div class="col-md-9">
+                    <dl class="row">
+                        <dt class="col-sm-3">ID</dt>
+                        <dd class="col-sm-9">@Model.Id</dd>
+                        
+                        <dt class="col-sm-3">Họ tên</dt>
+                        <dd class="col-sm-9">@Model.HoTen</dd>
+                        
+                        <dt class="col-sm-3">Email</dt>
+                        <dd class="col-sm-9">@Model.Email</dd>
+                        
+                        <dt class="col-sm-3">Số điện thoại</dt>
+                        <dd class="col-sm-9">@(string.IsNullOrEmpty(Model.PhoneNumber) ? "Chưa cung cấp" : Model.PhoneNumber)</dd>
+                        
+                        <dt class="col-sm-3">Ngày tạo</dt>
+                        <dd class="col-sm-9">@Model.NgayTao.ToString("dd/MM/yyyy HH:mm")</dd>
+                    </dl>
+                </div>
+            </div>
+            
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex gap-2 mt-3">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash"></i> Xác nhận xóa
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Quay lại danh sách
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 

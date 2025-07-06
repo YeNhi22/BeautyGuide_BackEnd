@@ -1,0 +1,257 @@
+@model BeautyGuide.Helpers.PaginatedList<BeautyGuide.Models.BaiViet>
+
+@{
+    ViewData["Title"] = "Quản lý bài viết";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">@ViewData["Title"]</h1>
+    <a asp-area="Admin" asp-controller="BaiViet" asp-action="Create" class="btn btn-primary">
+        <i class="fas fa-plus-circle me-1"></i> Tạo bài viết mới
+    </a>
+</div>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">
+            <i class="fas fa-newspaper me-1"></i> Danh sách bài viết
+        </h6>
+        <div class="d-flex">
+            <div class="input-group input-group-sm me-2" style="width: 250px;">
+                <input type="text" id="searchInput" class="form-control" placeholder="Tìm kiếm bài viết...">
+                <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-filter me-1"></i> Lọc
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="filterDropdown">
+                    <li><a class="dropdown-item" href="#">Tất cả</a></li>
+                    <li><a class="dropdown-item" href="#">Đang hiển thị</a></li>
+                    <li><a class="dropdown-item" href="#">Đang ẩn</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Mới nhất</a></li>
+                    <li><a class="dropdown-item" href="#">Cũ nhất</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th style="width: 60px;">ID</th>
+                        <th>Tiêu đề</th>
+                        <th style="width: 120px;">Danh mục</th>
+                        <th style="width: 120px;">Người đăng</th>
+                        <th style="width: 130px;">Ngày đăng</th>
+                        <th style="width: 100px;">Trạng thái</th>
+                        <th style="width: 150px;">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var baiViet in Model)
+                        {
+                            <tr>
+                                <td class="text-center">@baiViet.Id</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        @if (!string.IsNullOrEmpty(baiViet.AnhBia))
+                                        {
+                                            <img src="@baiViet.AnhBia" class="rounded me-2" width="40" height="40" style="object-fit: cover;" alt="@baiViet.TieuDe">
+                                        }
+                                        else
+                                        {
+                                            <div class="bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                                <i class="fas fa-image text-muted"></i>
+                                            </div>
+                                        }
+                                        <div>
+                                            <div class="fw-bold">@baiViet.TieuDe</div>
+                                            <div class="small text-muted">
+                                                <i class="fas fa-eye me-1"></i> @baiViet.LuotXem lượt xem
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge bg-light text-dark">
+                                        @(baiViet.DanhMuc?.TenDanhMuc ?? "Không có")
+                                    </span>
+                                </td>
+                                <td>@(baiViet.NguoiDang?.HoTen ?? "Không có")</td>
+                                <td>@baiViet.NgayDang.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td class="text-center">
+                                    @if (baiViet.TrangThai)
+                                    {
+                                        <span class="badge bg-success">Hiển thị</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">Ẩn</span>
+                                    }
+                                </td>
+                                <td>
+                                    <div class="d-flex justify-content-center">
+                                        <a asp-area="Admin" asp-controller="BaiViet" asp-action="Details" asp-route-id="@baiViet.Id" 
+                                           class="btn btn-sm btn-info me-1" data-bs-toggle="tooltip" title="Chi tiết">
+                                            <i class="fas fa-info-circle"></i>
+                                        </a>
+                                        <a asp-area="Admin" asp-controller="BaiViet" asp-action="Edit" asp-route-id="@baiViet.Id" 
+                                           class="btn btn-sm btn-primary me-1" data-bs-toggle="tooltip" title="Chỉnh sửa">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a asp-area="Admin" asp-controller="BaiViet" asp-action="Delete" asp-route-id="@baiViet.Id" 
+                                           class="btn btn-sm btn-danger me-1" data-bs-toggle="tooltip" title="Xóa">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                        <form asp-area="Admin" asp-controller="BaiViet" asp-action="ToggleStatus" asp-route-id="@baiViet.Id" 
+                                              method="post" style="display: inline;">
+                                            <button type="submit" class="btn btn-sm @(baiViet.TrangThai ? "btn-warning" : "btn-success")" 
+                                                    data-bs-toggle="tooltip" title="@(baiViet.TrangThai ? "Ẩn bài viết" : "Hiển thị bài viết")">
+                                                <i class="fas @(baiViet.TrangThai ? "fa-eye-slash" : "fa-eye")"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7" class="text-center py-4">
+                                <div class="text-muted">
+                                    <i class="fas fa-inbox fa-3x mb-3"></i>
+                                    <p>Không có bài viết nào.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Phân trang -->
+        @if (Model != null && Model.TotalPages > 1)
+        {
+            <nav aria-label="Page navigation" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    @if (Model.HasPreviousPage)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-area="Admin" asp-controller="BaiViet" asp-action="Index" asp-route-page="1" aria-label="First">
+                                <i class="fas fa-angle-double-left"></i>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" asp-area="Admin" asp-controller="BaiViet" asp-action="Index" asp-route-page="@(Model.PageIndex - 1)" aria-label="Previous">
+                                <i class="fas fa-angle-left"></i>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item disabled">
+                            <span class="page-link">
+                                <i class="fas fa-angle-double-left"></i>
+                            </span>
+                        </li>
+                        <li class="page-item disabled">
+                            <span class="page-link">
+                                <i class="fas fa-angle-left"></i>
+                            </span>
+                        </li>
+                    }
+
+                    @{
+                        int startPage = Math.Max(1, Model.PageIndex - 2);
+                        int endPage = Math.Min(Model.TotalPages, Model.PageIndex + 2);
+                    }
+
+                    @if (startPage > 1)
+                    {
+                        <li class="page-item disabled">
+                            <span class="page-link">...</span>
+                        </li>
+                    }
+
+                    @for (int i = startPage; i <= endPage; i++)
+                    {
+                        <li class="page-item @(i == Model.PageIndex ? "active" : "")">
+                            <a class="page-link" asp-area="Admin" asp-controller="BaiViet" asp-action="Index" asp-route-page="@i">
+                                @i
+                            </a>
+                        </li>
+                    }
+
+                    @if (endPage < Model.TotalPages)
+                    {
+                        <li class="page-item disabled">
+                            <span class="page-link">...</span>
+                        </li>
+                    }
+
+                    @if (Model.HasNextPage)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-area="Admin" asp-controller="BaiViet" asp-action="Index" asp-route-page="@(Model.PageIndex + 1)" aria-label="Next">
+                                <i class="fas fa-angle-right"></i>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" asp-area="Admin" asp-controller="BaiViet" asp-action="Index" asp-route-page="@Model.TotalPages" aria-label="Last">
+                                <i class="fas fa-angle-double-right"></i>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item disabled">
+                            <span class="page-link">
+                                <i class="fas fa-angle-right"></i>
+                            </span>
+                        </li>
+                        <li class="page-item disabled">
+                            <span class="page-link">
+                                <i class="fas fa-angle-double-right"></i>
+                            </span>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        }
+    </div>
+    <div class="card-footer">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <span class="text-muted">Hiển thị @Model.Count() trên tổng số @Model.TotalCount bài viết</span>
+            </div>
+            <div>
+                <select class="form-select form-select-sm" style="width: auto;">
+                    <option value="10">10 bài viết/trang</option>
+                    <option value="25">25 bài viết/trang</option>
+                    <option value="50">50 bài viết/trang</option>
+                    <option value="100">100 bài viết/trang</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enable tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+        });
+    </script>
+} 
